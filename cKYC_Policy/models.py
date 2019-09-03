@@ -30,9 +30,9 @@ PD_CHOICES = DOC_CHOICES=(('Passport','Passport'),('Driving licence','Driving li
 ('Self Declare','Self Declare'))
 
 FT_CONSTRAINT_CHOICES = (('^[A-Za-z ]+$','only alpha'),
+                ('([A-z0-9À-ž\s]){3,}','alpha numeric'),('^\d$','number'),
                 ("^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$","email contraint"),
-                ('^\d{10}$','phone number (10 digits)'),
-                ('^\d$','number'),('genderSelect','GenderSelect'),
+                ('^\d{10}$','phone number (10 digits)'),('genderSelect','GenderSelect'),
                 ('dob_constraint','DOB constraint'),('None','None'))
 
 class Policy(models.Model):
