@@ -113,13 +113,18 @@ padding: 15px;
         <div class="dropdown-menu" aria-labelledby="pagesDropdown">
           <h6 class="dropdown-header">General Settings:</h6>
           <a class="dropdown-item" href="/myprofile/{{ request.user }}">About me</a>
-          <a class="dropdown-item" href="/myprofile/{{ request.user }}/edit">Edit Profile</a>
-          <a class="dropdown-item" href="/reset-password">Change Password</a>
+          <a class="dropdown-item" href="#">Edit Profile</a>
+          <a class="dropdown-item" href="#">Change Password</a>
           <div class="dropdown-divider"></div>
           <h6 class="dropdown-header">Other Settings:</h6>
-          <a class="dropdown-item" href="404.html">404 Page</a>
-          <a class="dropdown-item" href="blank.html">Blank Page</a>
         </div>
+      </li>
+
+
+      <li class="nav-item">
+        <a class="nav-link" href="/create-policy">
+          <i class="fas fa-fw fa-plus"></i>
+          <span>Create Policy</span></a>
       </li>
 
     </ul>
