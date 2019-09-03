@@ -1,0 +1,27 @@
+
+To start this project ,
+
+1.You need to have python3.5 or Higher versions and pip (python3 version)
+
+2. run the following command -
+
+	>>> pip3 install -r requirements.txt
+
+3.Then goto project folder and run the server using following cmd
+	>>> python3 manage.py runserver 8000
+
+4.If its first time you are running it will for ask for enter Service name , 
+	Eg.
+	>>>  enter service name :cKYC_central
+
+5.now do migrations using following :
+
+	>>> python3 manage.py makemigrations 
+	>>> python3 manage.py migrate
+	
+6.now create superuser using cmd ,
+	>>> python3 manage.py createsuperuser 
+
+this user is authorised to login and create policy
+
+7.Once policy confirmed and you will get a option to download xml file

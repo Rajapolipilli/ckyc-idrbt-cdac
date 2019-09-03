@@ -1,0 +1,68 @@
+{% extends 'adminbase.html' %}
+
+
+{% block body %}
+          <div class="card-header text-center fp" >
+            Hi , <b>{{ request.user }} !! </b> there are polices you created !! 
+          </div>
+          <br>
+
+    {% for obj in policies_set %}
+    <div class="card mb-3" >
+        <div class="card-header"  style="background-color: skyblue">
+            policy name : <b> {{ obj.policy_name }}  </b> 
+             <a href="/media/{{ obj.policy_name }}.xml"; style="color: white" ; download>
+             <button class="float-right btn btn-primary">download   </button>
+
+                  </a>
+        </div>
+        <div class="card-body" >
+            <b class="">policy conditions :</b>
+
+            <p class="justify"> {{ obj.policy_description }} </p>
+        </div>
+
+        
+        <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Field Name</th>
+                    <th>Field Type</th>
+                    <th>Field Datatype</th>
+                    <th>proof_docs</th>
+                    <th>pattern</th>
+                    <th>message</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                {% for pfd in obj.policyfield_set.all %}
+                  <tr>
+                    <td> {{ pfd.name }} </td>
+                    <td> {{ pfd.meta }} </td>
+                    <td> {{ pfd.datatype }} </td>
+                    <td> {{ pfd.proof }} </td>                    
+                    <td> {{ pfd.pattern }} </td>
+                    <td> {{ pfd.message }} </td>
+
+                  </tr>
+          
+              {% endfor %}
+                </tbody>
+                </table>
+                </div>
+          </div>
+
+    </div>
+    {%  endfor %}
+
+
+
+
+
+        
+{% endblock %}
+
+

@@ -1,0 +1,24 @@
+{% extends 'registration/userbase.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} CPS Lab User Login {% endblock %}
+{% block body %}
+
+<div class="card mb-3" >
+        
+
+  <div class="container ">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header text-center"  style="background: orange">
+      <b>System yet to be configured by Admin</b></div>
+      <div class="card-body" style="padding: 100px"> 
+      <a href="{% url 'create-policy' %}" class="btn btn-primary">click here to login and setup system
+      </a> 
+        
+      </div>
+    </div>
+  </div>
+
+        
+{% endblock %}
+

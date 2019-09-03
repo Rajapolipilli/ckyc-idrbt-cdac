@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Theme Made By www.w3schools.com - No Copyright -->
+  <title>Welcome to cKYC</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+  <style>
+  body {
+    font: 20px Montserrat, sans-serif;
+    line-height: 1.8;
+    color: #f5f6f7;
+  }
+  p {font-size: 16px;}
+  .margin {margin-bottom: 45px;}
+  .bg-1 { 
+    background-color: #1abc9c; /* Green */
+    color: #ffffff;
+  }
+  .bg-2 { 
+    background-color: #474e5d; /* Dark Blue */
+    color: #ffffff;
+  }
+  .bg-3 { 
+    background-color: #ffffff; /* White */
+    color: #555555;
+  }
+  .bg-4 { 
+    background-color: #2f2f2f; /* Black Gray */
+    color: #fff;
+  }
+  .container-fluid {
+    padding-top: 70px;
+    padding-bottom: 70px;
+  }
+
+  .container-fluid-h {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+
+  .navbar {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border: 0;
+    border-radius: 0;
+    margin-bottom: 0;
+    font-size: 12px;
+    letter-spacing: 5px;
+  }
+  .navbar-nav  li a:hover {
+    color: #1abc9c !important;
+  }
+  </style>
+</head>
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-default">
+  <div class="container">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="/">cKYC </a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/register">REGISTER</a></li>
+        <li><a href="/ckyc-policies">View cKYC Policies </a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- Third Container (Grid) -->
+<div class="container-fluid bg-3 text-center">
+  
+    {% for obj in policies %}
+    <div class="card mb-3" >
+        <div class="card-header bg-1 container-fluid-h" >
+            policy name : <b> {{ obj.policy_name }}  </b>
+            
+        </div>
+        <div class="card-body" >
+        <div class="container-fluid bg-2 text-center">
+        <h3 class="margin">policy description :</h3>
+            <p class="justify"> {{ obj.policy_description }} </p>
+            </div>
+        </div>
+
+        
+        <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Field Name</th>
+                    <th>Field Type</th>
+                    <th>Field Datatype</th>
+                    <th>proof_docs</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                {% for pfd in obj.policyfield_set.all %}
+                  <tr>
+                    <td> {{ pfd.name }} </td>
+                    <td> {{ pfd.meta }} </td>
+                    <td> {{ pfd.datatype }} </td>
+                    <td> {{ pfd.proof }} </td>
+                  </tr>
+          
+              {% endfor %}
+                </tbody>
+                </table>
+                </div>
+          </div>
+    </div>
+    {%  endfor %}
+</div>
+<!-- Footer -->
+<footer class="container-fluid bg-4 text-center">
+<div class="copyright text-center my-auto">
+            <span>Copyright © cKYC 2019</span>
+          </div>
+</footer>
+
+</body>
+</html>

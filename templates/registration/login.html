@@ -1,0 +1,30 @@
+{% extends 'registration/userbase.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %} cKYC Login {% endblock %}
+{% block body %}
+
+<div class="card mb-3" >
+        
+
+  <div class="container ">
+    <div class="card card-login mx-auto mt-5">
+      <div class="card-header text-center"  style="background: skyblue">
+      <b>Login</b></div>
+      <div class="card-body"> 
+
+
+      <form method="post" style="">
+        {% csrf_token %}
+        {{ form|crispy }}<br>
+        <button type="submit" class="btn btn-info">Login</button>
+      </form>
+
+        
+      </div>
+    </div>
+  </div>
+</div>
+        
+{% endblock %}
+

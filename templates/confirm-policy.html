@@ -1,0 +1,59 @@
+{% extends 'adminbase.html' %}
+
+
+{% block body %}
+
+
+        <!-- DataTables Example -->
+
+    <div class="card mb-3" >
+        <div class="card-header"  style="background-color: skyblue">
+        policy name :<b> {{ instance.policy_name }}  </b>
+        </div>
+        <div class="card-body" >
+        <b class="">policy conditions :</b>
+            <br>
+            <p class="justify"> {{ instance.policy_description }} </p>
+        </div>
+        
+        <div class="card-body">
+            <div class="table-responsive">
+              <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                <thead>
+                  <tr>
+                    <th>Field Name</th>
+                    <th>Field Type</th>
+                    <th>Field Datatype</th>
+                    <th>proof_docs</th>
+                    <th>pettern</th>
+                    <th>message</th>
+                  </tr>
+                </thead>
+                <tbody>
+
+                {% for pfd in instance.policyfield_set.all %}
+                  <tr>
+                    <td> {{ pfd.name }} </td>
+                    <td> {{ pfd.meta }} </td>
+                    <td> {{ pfd.datatype }} </td>
+                    <td> {{ pfd.proof }} </td>
+                    <td> {{ pfd.pattern }} </td>
+                    <td> {{ pfd.message }} </td>
+                  </tr>
+        	
+        	    {% endfor %}
+                </tbody>
+                </table>
+                </div></div>
+        	<br>
+        <div class="text-right fp">
+        <a href="{% url 'index' %}" class="btn btn-success"> confirm policy </a> 
+        <a href="{% url 'delete-policy' pk=instance.pk %}" class="btn btn-danger"> delete policy </a>
+        </div>
+
+		</div>
+
+    
+{% endblock %}
+
+

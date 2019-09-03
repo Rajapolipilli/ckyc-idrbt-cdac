@@ -1,0 +1,91 @@
+{% extends 'adminbase.html' %}
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+{% block body %}
+
+    <div class="card mb-3" >
+        <div class="card-header"  style="background-color: skyblue">
+            <b> Policy Create Form  </b> 
+        </div>
+
+        
+        
+		    <form id="myForm" action="" method="post" class="">
+			<div class="card-body">
+		        {% csrf_token %}
+		        {% for field in form %}
+		            {{ field.errors }}
+		            {{ field.label_tag }}  {{ field }} <br>
+		        {% endfor %}
+
+		        {{ form.policy_field.management_form }}
+		        </div>
+		        <br><hr>
+		        <b>Add Policy fields</b>
+		        <div class="table-responsive" style="font-size: 12px;">
+
+		        <table id="table" class="table table-bordered" id="dataTable" width="100%" cellspacing="0"">
+		            <thead>
+		            <tr>
+		                <th> Field Name </th>
+		                <th> Field Type </th>
+		                <th> Field Datatype </th>
+		                <th> Proofs Allowed </th>
+		                <th> Pattern </th>
+		                <th> Help Text </th>
+		                
+
+
+		            </tr>
+
+		            </thead>
+		            {% for policy_field in form.policy_field %}
+
+		                <tbody class="policy-field-instances">
+
+		                <tr id="addmore">
+		                    <td>{{ policy_field.name }}</td>
+		                    <td>{{ policy_field.meta }}</td>
+		                    <td>{{ policy_field.datatype }}</td>
+<!-- 		                    <td>{{ policy_field.proof_docs }}</td>
+ -->		                    
+		                    <td>
+		                    <span id="selfdec">{{ policy_field.proof }}</span>
+		                    <!-- <input type="checkbox"  onchange="activateButton(this)">self declaration 
+ -->
+		                    </td>
+		                    <td>{{ policy_field.pattern }}</td>
+		                    <td>{{ policy_field.message }}</td>
+
+		                    <td> </td>
+		                </tr>
+
+		                </tbody>
+		            {% endfor %}
+		        </table>
+		        </div>
+		        <button type="submit" class="btn btn-primary">save</button>
+
+		    </form>
+	
+
+<script>
+    $(function () {
+        $('#myForm tbody tr').formset();
+    })
+</script>
+
+<script type="text/javascript">
+	$("#addmore").click(function() {
+	$("html, body").animate({ scrollTop: $(document).height() }, "slow");
+
+});​
+
+</script>
+
+
+
+        
+{% endblock %}
+
+

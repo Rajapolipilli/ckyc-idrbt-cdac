@@ -1,0 +1,11 @@
+First_name 
+Last_name 
+Father_Name
+Date_Of_Birth
+placeofbirth
+gender 	
+email_id
+phone number
+address
+spousename 	
+identitymarks

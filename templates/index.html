@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+
+{% block body %}
+		
+
+
+        <div class="card mb-3" >
+          <div class="card-header">
+            Hi , <b>{{ request.user }} </b> your api key is
+          </div>
+
+          <div class="card-body" style="background-color: skyblue">
+          {{ api_key }}
+          </div>
+		</div>
+
+		<div class="card mb-3" >
+          <div class="card-header">
+          <b>You are agreed to following policies:</b>
+          </div>
+
+          <div class="card-body" >
+
+          {% for pol in policies %}
+          	<b>{{ pol.policy_name }} :</b><br>
+	        <p>{{ pol.policy }}</p>
+          {% empty %}
+
+          {%  endfor %}
+
+          </div>
+		</div>
+
+
+
+
+        
+{% endblock %}
+
+

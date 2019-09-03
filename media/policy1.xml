@@ -1,0 +1,62 @@
+<?xml version="1.0" ?>
+<cKYC_central>
+   <policy1>
+      <Field>
+         <name>First Name</name>
+         <meta>primary</meta>
+         <datatype>text</datatype>
+         <pattern>^[A-Za-z ]+$</pattern>
+         <message>sdb</message>
+         <proof>
+            <attachments>Passport</attachments>
+            <attachments>Driving licence</attachments>
+            <attachments>VoterID</attachments>
+         </proof>
+      </Field>
+      <Field>
+         <name>Last Name</name>
+         <meta>mandatory</meta>
+         <datatype>text</datatype>
+         <pattern>^[A-Za-z ]+$</pattern>
+         <message>asva</message>
+         <proof>
+            <attachments>VoterID</attachments>
+            <attachments>PAN Card</attachments>
+            <attachments>Aadhar Card</attachments>
+            <attachments>NREGA job card</attachments>
+         </proof>
+      </Field>
+      <Field>
+         <name>dob</name>
+         <meta>mandatory</meta>
+         <datatype>date</datatype>
+         <pattern>
+            <min>1902</min>
+            <max>2002</max>
+         </pattern>
+         <message>sdvsdv</message>
+         <proof>
+            <attachments>Notarized GPO</attachments>
+            <attachments>MoA/AoA</attachments>
+            <attachments>Annual return copy with ROC</attachments>
+            <attachments>form 32</attachments>
+            <attachments>current bank statements</attachments>
+         </proof>
+      </Field>
+      <Field>
+         <name>gender</name>
+         <meta>optional</meta>
+         <select>
+            <option>Male</option>
+            <option>Female</option>
+            <option>Other</option>
+         </select>
+         <message>wesdbgfdb</message>
+         <proof>
+            <attachments>Driving licence</attachments>
+            <attachments>VoterID</attachments>
+            <attachments>PAN Card</attachments>
+         </proof>
+      </Field>
+   </policy1>
+</cKYC_central>

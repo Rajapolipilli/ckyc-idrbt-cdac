@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+{% block title %}Update profile{% endblock %}
+
+{% block body %}
+
+  <div class="container ">
+    <div class="row sp">
+<div class="col-sm-6 fp "  > 
+<b> First name: </b>{{ instance.first_name }} 
+</div>
+<div class="col-sm-6 fp "> 
+<b> Last name: </b>{{ instance.last_name }} 
+</div>
+<div class="col-sm-6 fp "  > 
+<b>Username: </b>{{ instance.username }} 
+</div>
+<div class="col-sm-6 fp "  > 
+<b>Email :</b>{{ instance.email }}
+</div>
+<div class="col-sm-6 fp "> 
+<b>Hobbies :</b>{{ instance.hobbies }}
+</div>
+<div class="col-sm-6 fp " > 
+<b>Age group :</b>{{ instance.age_group }}
+</div>
+<div class="col-sm-6 fp "> 
+<b>Gender :</b>{{ instance.gender }}
+</div>
+<div class="col-sm-6 fp "> 
+<b>Country :</b>{{ instance.country }} 
+</div>
+<div class="col-sm-6 fp "> 
+<b>Location : </b>{{ instance.location }} 
+</div>
+<div class="col-sm-6 fp "> 
+<b>my favorite genres: </b>
+{% for genre in instance.favorite_genre %}
+ {{ genre }},
+{% endfor %}
+
+</div>
+<div class="col-sm-6 fp col-offset-sm-6 "> 
+<b> TypeOfUser </b>{{ instance.TypeOfUser }}
+</div>
+
+
+
+</div>
+
+
+    </div>
+  </div>
+
+        
+
+
+
+
+
+
+
+
+
+
+
+{% endblock %}
